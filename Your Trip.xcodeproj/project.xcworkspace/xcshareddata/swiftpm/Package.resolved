@@ -10,6 +10,24 @@
       }
     },
     {
+      "identity" : "corenetwork",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bryancaro/CoreNetwork",
+      "state" : {
+        "branch" : "master",
+        "revision" : "6f7f1a42dd9226d7e05baada6c8cf04e35862632"
+      }
+    },
+    {
+      "identity" : "coreutils",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/chillexperiencedev/CoreUtils.git",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "106391673b5123dc95efb5835a57abe6d93c94f5"
+      }
+    },
+    {
       "identity" : "swift-case-paths",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-case-paths",

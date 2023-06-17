@@ -15,6 +15,8 @@
 		1116592A2A3E212E00B6A02A /* Your_TripUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111659292A3E212E00B6A02A /* Your_TripUITests.swift */; };
 		1116592C2A3E212E00B6A02A /* Your_TripUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116592B2A3E212E00B6A02A /* Your_TripUITestsLaunchTests.swift */; };
 		1116593A2A3E227C00B6A02A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 111659392A3E227C00B6A02A /* ComposableArchitecture */; };
+		1116593D2A3E22EA00B6A02A /* CoreUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 1116593C2A3E22EA00B6A02A /* CoreUtils */; };
+		111659402A3E232100B6A02A /* CoreNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 1116593F2A3E232100B6A02A /* CoreNetwork */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1116593A2A3E227C00B6A02A /* ComposableArchitecture in Frameworks */,
+				111659402A3E232100B6A02A /* CoreNetwork in Frameworks */,
+				1116593D2A3E22EA00B6A02A /* CoreUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +151,8 @@
 			name = "Your Trip";
 			packageProductDependencies = (
 				111659392A3E227C00B6A02A /* ComposableArchitecture */,
+				1116593C2A3E22EA00B6A02A /* CoreUtils */,
+				1116593F2A3E232100B6A02A /* CoreNetwork */,
 			);
 			productName = "Your Trip";
 			productReference = 1116590B2A3E212D00B6A02A /* Your Trip.app */;
@@ -222,6 +228,8 @@
 			mainGroup = 111659022A3E212D00B6A02A;
 			packageReferences = (
 				111659382A3E227C00B6A02A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				1116593B2A3E22EA00B6A02A /* XCRemoteSwiftPackageReference "CoreUtils" */,
+				1116593E2A3E232100B6A02A /* XCRemoteSwiftPackageReference "CoreNetwork" */,
 			);
 			productRefGroup = 1116590C2A3E212D00B6A02A /* Products */;
 			projectDirPath = "";
@@ -601,6 +609,22 @@
 				minimumVersion = 0.54.1;
 			};
 		};
+		1116593B2A3E22EA00B6A02A /* XCRemoteSwiftPackageReference "CoreUtils" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/chillexperiencedev/CoreUtils.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		1116593E2A3E232100B6A02A /* XCRemoteSwiftPackageReference "CoreNetwork" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bryancaro/CoreNetwork";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -608,6 +632,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 111659382A3E227C00B6A02A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		1116593C2A3E22EA00B6A02A /* CoreUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1116593B2A3E22EA00B6A02A /* XCRemoteSwiftPackageReference "CoreUtils" */;
+			productName = CoreUtils;
+		};
+		1116593F2A3E232100B6A02A /* CoreNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1116593E2A3E232100B6A02A /* XCRemoteSwiftPackageReference "CoreNetwork" */;
+			productName = CoreNetwork;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
