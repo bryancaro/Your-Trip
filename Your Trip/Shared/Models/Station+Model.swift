@@ -10,6 +10,8 @@
 //  
 //
 
+import Foundation
+
 /// Response
 struct StationResponse: Codable {
     let code, name: String
@@ -32,7 +34,8 @@ struct StationResponse: Codable {
 }
 
 /// Model
-struct StationModel {
+struct StationModel: Equatable, Hashable, Identifiable {
+    let id: UUID
     let code: String
     let name: String
     let alternateName: String
@@ -50,6 +53,7 @@ struct StationModel {
     let airportShopping: Bool
 
     init(_ response: StationResponse) {
+        self.id = UUID()
         self.code = response.code
         self.name = response.name
         self.alternateName = response.alternateName ?? ""
@@ -67,7 +71,8 @@ struct StationModel {
         self.airportShopping = response.airportShopping ?? false
     }
 
-    init(code: String, name: String, alternateName: String, alias: [String], countryCode: String, countryName: String, countryGroupCode: String, countryGroupName: String, timeZoneCode: String, latitude: String, longitude: String, mobileBoardingPass: Bool, markets: [MarketModel], tripCardImageURL: String, airportShopping: Bool) {
+    init(code: String = "", name: String = "", alternateName: String = "", alias: [String] = [], countryCode: String = "", countryName: String = "", countryGroupCode: String = "", countryGroupName: String = "", timeZoneCode: String = "", latitude: String = "", longitude: String = "", mobileBoardingPass: Bool = false, markets: [MarketModel] = [], tripCardImageURL: String = "", airportShopping: Bool = false) {
+        self.id = UUID()
         self.code = code
         self.name = name
         self.alternateName = alternateName
@@ -88,6 +93,8 @@ struct StationModel {
 
 /// Mock
 extension StationModel {
+    static let empty = Self(name: "Select")
+
     static let mock = Self(
         code: "AABBCC",
         name: "StationA",

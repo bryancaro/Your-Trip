@@ -15,7 +15,7 @@
       "location" : "https://github.com/bryancaro/CoreNetwork",
       "state" : {
         "branch" : "master",
-        "revision" : "50299be6555c0ce5b71c546126f6c6755c34d46a"
+        "revision" : "6daac836a343107b9e17d6aa7dbe21d76cd8e4e2"
       }
     },
     {
@@ -24,7 +24,7 @@
       "location" : "https://github.com/chillexperiencedev/CoreUtils.git",
       "state" : {
         "branch" : "develop",
-        "revision" : "106391673b5123dc95efb5835a57abe6d93c94f5"
+        "revision" : "cad06b09c128322256b6e2506bf566a8db5564bf"
       }
     },
     {

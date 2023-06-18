@@ -16,7 +16,7 @@ struct StopResponse: Codable {
 }
 
 /// Model
-struct StopModel {
+struct StopModel: Equatable, Hashable {
     let code: String
 
     init(_ response: StopResponse) {

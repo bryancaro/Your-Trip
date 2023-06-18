@@ -16,7 +16,7 @@ struct StationsResponse: Codable {
 }
 
 /// Model
-struct StationsModel {
+struct StationsModel: Equatable {
     let stations: [StationModel]
 
     init(_ response: StationsResponse) {

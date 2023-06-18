@@ -19,7 +19,7 @@ struct MarketResponse: Codable {
 }
 
 /// Model
-struct MarketModel {
+struct MarketModel: Equatable, Hashable {
     let code: String
     let group: String
     let stops: [StopModel]

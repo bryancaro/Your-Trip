@@ -11,7 +11,7 @@ import SwiftUI
 struct Your_TripApp: App {
     var body: some Scene {
         WindowGroup {
-            RootView(store: RootView.store)
+            FlightSearchView(store: FlightSearchView.store)
         }
     }
 }
