@@ -40,4 +40,14 @@ extension FlightSearchServer: DependencyKey {
         let model = StationsModel(response)
         return model
     }
+
+    static var testValue = Self {
+        let model = StationsModel.mock
+        return model
+    }
+
+    static var previewValue = Self {
+        let model = StationsModel.mock
+        return model
+    }
 }

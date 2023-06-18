@@ -135,7 +135,7 @@ extension FlightSearchView {
                     Text(Self.SELECT_LABEL).tag("")
                     ForEach(viewStore.airports, id: \.self) { station in
                         Text(station.name)
-                            .tag(station.id)
+                            .tag(station.code)
                     }
                 }
 
@@ -145,7 +145,7 @@ extension FlightSearchView {
                     Text(Self.SELECT_LABEL).tag("")
                     ForEach(viewStore.airports, id: \.self) { station in
                         Text(station.name)
-                            .tag(station.id)
+                            .tag(station.code)
                     }
                 }
         }

@@ -34,8 +34,7 @@ struct StationResponse: Codable {
 }
 
 /// Model
-struct StationModel: Equatable, Hashable, Identifiable {
-    let id: UUID
+struct StationModel: Equatable, Hashable {
     let code: String
     let name: String
     let alternateName: String
@@ -53,7 +52,6 @@ struct StationModel: Equatable, Hashable, Identifiable {
     let airportShopping: Bool
 
     init(_ response: StationResponse) {
-        self.id = UUID()
         self.code = response.code
         self.name = response.name
         self.alternateName = response.alternateName ?? ""
@@ -72,7 +70,6 @@ struct StationModel: Equatable, Hashable, Identifiable {
     }
 
     init(code: String = "", name: String = "", alternateName: String = "", alias: [String] = [], countryCode: String = "", countryName: String = "", countryGroupCode: String = "", countryGroupName: String = "", timeZoneCode: String = "", latitude: String = "", longitude: String = "", mobileBoardingPass: Bool = false, markets: [MarketModel] = [], tripCardImageURL: String = "", airportShopping: Bool = false) {
-        self.id = UUID()
         self.code = code
         self.name = name
         self.alternateName = alternateName

@@ -10,7 +10,6 @@
 		1116590F2A3E212D00B6A02A /* Your_TripApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116590E2A3E212D00B6A02A /* Your_TripApp.swift */; };
 		111659132A3E212E00B6A02A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 111659122A3E212E00B6A02A /* Assets.xcassets */; };
 		111659162A3E212E00B6A02A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 111659152A3E212E00B6A02A /* Preview Assets.xcassets */; };
-		111659202A3E212E00B6A02A /* Your_TripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116591F2A3E212E00B6A02A /* Your_TripTests.swift */; };
 		1116592A2A3E212E00B6A02A /* Your_TripUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111659292A3E212E00B6A02A /* Your_TripUITests.swift */; };
 		1116592C2A3E212E00B6A02A /* Your_TripUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116592B2A3E212E00B6A02A /* Your_TripUITestsLaunchTests.swift */; };
 		1116593A2A3E227C00B6A02A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 111659392A3E227C00B6A02A /* ComposableArchitecture */; };
@@ -32,6 +31,7 @@
 		112D8E6C2A3F2BCD005DD504 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D8E6B2A3F2BCD005DD504 /* String+Extensions.swift */; };
 		112D8E772A3F3A1A005DD504 /* TripCard+UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D8E762A3F3A1A005DD504 /* TripCard+UIConstants.swift */; };
 		112D8E7A2A3F3A36005DD504 /* FlightCard+UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D8E792A3F3A36005DD504 /* FlightCard+UIConstants.swift */; };
+		112D8E822A3F4431005DD504 /* FlightSearchDomain_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D8E812A3F4431005DD504 /* FlightSearchDomain_Test.swift */; };
 		11CA3E052A3E253F0022F4FE /* FlightSearch+UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CA3DFE2A3E253F0022F4FE /* FlightSearch+UIConstants.swift */; };
 		11CA3E062A3E253F0022F4FE /* FlightSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CA3DFF2A3E253F0022F4FE /* FlightSearchView.swift */; };
 		11CA3E072A3E253F0022F4FE /* FlightSearchServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CA3E022A3E253F0022F4FE /* FlightSearchServer.swift */; };
@@ -41,6 +41,8 @@
 		11CA3E102A3E28B60022F4FE /* Market+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CA3E0F2A3E28B60022F4FE /* Market+Model.swift */; };
 		11CA3E122A3E28DD0022F4FE /* Stop+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CA3E112A3E28DD0022F4FE /* Stop+Model.swift */; };
 		11CA3E152A3E35970022F4FE /* DataStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CA3E142A3E35970022F4FE /* DataStatus.swift */; };
+		11F1C3BC2A3FC500008C33BA /* FlightResultsDomain_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F1C3BB2A3FC500008C33BA /* FlightResultsDomain_Test.swift */; };
+		11F1C3BF2A3FCA79008C33BA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F1C3BE2A3FCA79008C33BA /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +68,6 @@
 		111659122A3E212E00B6A02A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		111659152A3E212E00B6A02A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1116591B2A3E212E00B6A02A /* Your TripTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Your TripTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1116591F2A3E212E00B6A02A /* Your_TripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Your_TripTests.swift; sourceTree = "<group>"; };
 		111659252A3E212E00B6A02A /* Your TripUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Your TripUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		111659292A3E212E00B6A02A /* Your_TripUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Your_TripUITests.swift; sourceTree = "<group>"; };
 		1116592B2A3E212E00B6A02A /* Your_TripUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Your_TripUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		112D8E6B2A3F2BCD005DD504 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		112D8E762A3F3A1A005DD504 /* TripCard+UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripCard+UIConstants.swift"; sourceTree = "<group>"; };
 		112D8E792A3F3A36005DD504 /* FlightCard+UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlightCard+UIConstants.swift"; sourceTree = "<group>"; };
+		112D8E812A3F4431005DD504 /* FlightSearchDomain_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchDomain_Test.swift; sourceTree = "<group>"; };
 		11CA3DFE2A3E253F0022F4FE /* FlightSearch+UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FlightSearch+UIConstants.swift"; sourceTree = "<group>"; };
 		11CA3DFF2A3E253F0022F4FE /* FlightSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightSearchView.swift; sourceTree = "<group>"; };
 		11CA3E022A3E253F0022F4FE /* FlightSearchServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightSearchServer.swift; sourceTree = "<group>"; };
@@ -95,6 +97,8 @@
 		11CA3E0F2A3E28B60022F4FE /* Market+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Market+Model.swift"; sourceTree = "<group>"; };
 		11CA3E112A3E28DD0022F4FE /* Stop+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stop+Model.swift"; sourceTree = "<group>"; };
 		11CA3E142A3E35970022F4FE /* DataStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStatus.swift; sourceTree = "<group>"; };
+		11F1C3BB2A3FC500008C33BA /* FlightResultsDomain_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightResultsDomain_Test.swift; sourceTree = "<group>"; };
+		11F1C3BE2A3FCA79008C33BA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +172,7 @@
 		1116591E2A3E212E00B6A02A /* Your TripTests */ = {
 			isa = PBXGroup;
 			children = (
-				1116591F2A3E212E00B6A02A /* Your_TripTests.swift */,
+				112D8E7F2A3F4405005DD504 /* Modules */,
 			);
 			path = "Your TripTests";
 			sourceTree = "<group>";
@@ -260,6 +264,23 @@
 			path = FlightCard;
 			sourceTree = "<group>";
 		};
+		112D8E7F2A3F4405005DD504 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				11F1C3BA2A3FC4E6008C33BA /* FlightResults */,
+				112D8E802A3F440B005DD504 /* FightSearch */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		112D8E802A3F440B005DD504 /* FightSearch */ = {
+			isa = PBXGroup;
+			children = (
+				112D8E812A3F4431005DD504 /* FlightSearchDomain_Test.swift */,
+			);
+			path = FightSearch;
+			sourceTree = "<group>";
+		};
 		11CA3DF82A3E24C80022F4FE /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +292,7 @@
 		11CA3DF92A3E24CD0022F4FE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				11F1C3BD2A3FCA6D008C33BA /* LaunchScreen */,
 				11CA3DFC2A3E253F0022F4FE /* FlightSearch */,
 				112D8E4A2A3E6EB1005DD504 /* FlightResults */,
 			);
@@ -355,6 +377,22 @@
 				11CA3E142A3E35970022F4FE /* DataStatus.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		11F1C3BA2A3FC4E6008C33BA /* FlightResults */ = {
+			isa = PBXGroup;
+			children = (
+				11F1C3BB2A3FC500008C33BA /* FlightResultsDomain_Test.swift */,
+			);
+			path = FlightResults;
+			sourceTree = "<group>";
+		};
+		11F1C3BD2A3FCA6D008C33BA /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				11F1C3BE2A3FCA79008C33BA /* Launch Screen.storyboard */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,6 +509,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11F1C3BF2A3FCA79008C33BA /* Launch Screen.storyboard in Resources */,
 				111659162A3E212E00B6A02A /* Preview Assets.xcassets in Resources */,
 				111659132A3E212E00B6A02A /* Assets.xcassets in Resources */,
 			);
@@ -530,7 +569,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				111659202A3E212E00B6A02A /* Your_TripTests.swift in Sources */,
+				11F1C3BC2A3FC500008C33BA /* FlightResultsDomain_Test.swift in Sources */,
+				112D8E822A3F4431005DD504 /* FlightSearchDomain_Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,6 +727,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -716,6 +757,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -41,18 +41,16 @@ struct FlightResultsDomain: ReducerProtocol {
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case .fetchFlights:
+            guard (state.dataLoadingStatus == .notStarted || state.dataLoadingStatus == .error) else {
+                return .none
+            }
+            
             let data = state.searchFlight
             state.dataLoadingStatus = .loading
 
             return .run { send in
                 let result = await TaskResult {
-                    do {
-                        let result = try await server.fetchFlights(data)
-                        return result
-                    } catch {
-                        print(error.localizedDescription)
-                        throw error
-                    }
+                    try await server.fetchFlights(data)
                 }
 
                 await send(.fetchFlightsResponse(result))

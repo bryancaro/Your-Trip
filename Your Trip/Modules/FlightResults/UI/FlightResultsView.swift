@@ -166,7 +166,16 @@ extension FlightResultsView {
 
 //  MARK: - Preview
 struct FlightResultsView_Previews: PreviewProvider {
+    static let store = Store(
+        initialState: FlightResultsDomain.State(searchFlight: SearchFlightModel(state: FlightSearchDomain.State())),
+        reducer: {
+            FlightResultsDomain()
+        }, withDependencies: {
+            $0.FlightResultsServerKey = .previewValue
+        }
+    )
+
     static var previews: some View {
-        FlightResultsView(store: FlightResultsView.store)
+        FlightResultsView(store: Self.store)
     }
 }

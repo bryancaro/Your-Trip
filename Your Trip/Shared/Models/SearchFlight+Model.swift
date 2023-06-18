@@ -23,6 +23,17 @@ struct SearchFlightModel: Equatable {
     var teens: Int
     var childrens: Int
 
+    init(from: String, to: String, isRoundTrip: Bool, departureDate: String, returnDate: String, adults: Int, teens: Int, childrens: Int) {
+        self.from = from
+        self.to = to
+        self.isRoundTrip = isRoundTrip
+        self.departureDate = departureDate
+        self.returnDate = returnDate
+        self.adults = adults
+        self.teens = teens
+        self.childrens = childrens
+    }
+
     init(state: FlightSearchDomain.State) {
         self.from = state.fromAirport.code
         self.to = state.toAirport.code

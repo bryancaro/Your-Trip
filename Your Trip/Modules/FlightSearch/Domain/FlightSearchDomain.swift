@@ -16,7 +16,7 @@ import Foundation
 struct FlightSearchDomain: ReducerProtocol {
     struct State: Equatable {
         /// Data Loading Status
-        fileprivate var dataLoadingStatus = DataLoadingStatus.notStarted
+        var dataLoadingStatus = DataLoadingStatus.notStarted
         var isLoading: Bool {
             dataLoadingStatus == .loading
         }
@@ -61,6 +61,7 @@ struct FlightSearchDomain: ReducerProtocol {
         case teenCount(Int)
         case childrenCount(Int)
         case showFlightResults(isShowing: Bool)
+        case getSearchButtonStatus
         /// Other Components Domain Actions
         case flightResults(FlightResultsDomain.Action)
     }
@@ -79,13 +80,7 @@ struct FlightSearchDomain: ReducerProtocol {
                 state.dataLoadingStatus = .loading
                 return .run { send in
                     let result = await TaskResult {
-                        do {
-                            let result = try await server.fetchStations()
-                            return result
-                        } catch {
-                            print(error.localizedDescription)
-                            throw error
-                        }
+                        try await server.fetchStations()
                     }
 
                     await send(.fetchStationsResponse(result))
@@ -99,22 +94,22 @@ struct FlightSearchDomain: ReducerProtocol {
                     print(error.localizedDescription)
                     state.dataLoadingStatus = .error
                 }
-                return verifyButtonVisibility(state: &state)
+                return .send(.getSearchButtonStatus)
             case .roundTrip(let value):
                 state.isRoundTrip = value
-                return verifyButtonVisibility(state: &state)
+                return .send(.getSearchButtonStatus)
             case .departAirport(let airport):
                 state.fromAirport = airport
-                return verifyButtonVisibility(state: &state)
+                return .send(.getSearchButtonStatus)
             case .arriveAirport(let airport):
                 state.toAirport = airport
-                return verifyButtonVisibility(state: &state)
+                return .send(.getSearchButtonStatus)
             case .departureDate(let date):
                 state.departureDate = date
-                return verifyButtonVisibility(state: &state)
+                return .send(.getSearchButtonStatus)
             case .returnDate(let date):
                 state.returnDate = date
-                return verifyButtonVisibility(state: &state)
+                return .send(.getSearchButtonStatus)
             case .adultCount(let count):
                 state.adults = count
                 return .none
@@ -128,6 +123,8 @@ struct FlightSearchDomain: ReducerProtocol {
                 state.showFlightResults = show
                 state.flightResultsState = show ? FlightResultsDomain.State(searchFlight: SearchFlightModel(state: state)) : nil
                 return .none
+            case .getSearchButtonStatus:
+                return verifyButtonVisibility(state: &state)
             case .flightResults:
                 return .none
             }
@@ -160,6 +157,15 @@ extension FlightSearchDomain {
 
         // Check if it's a round trip and the destination airport code is empty
         if isRoundTrip, toAirportCode.isEmpty {
+            state.isSearchButtonDisable = true
+            return .none
+        }
+
+        // Check if the departure date is equal to or after today's date
+        let today = Date()
+        let calendar = Calendar.current
+        let comparison = calendar.compare(departureDate, to: today, toGranularity: .day)
+        if comparison == .orderedAscending {
             state.isSearchButtonDisable = true
             return .none
         }

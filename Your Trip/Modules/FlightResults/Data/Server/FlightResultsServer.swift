@@ -42,4 +42,12 @@ extension FlightResultsServer: DependencyKey {
         let model = FlightsModel(response)
         return model
     }
+
+    static var previewValue = Self { value in
+        return FlightsModel.mock
+    }
+
+    static var testValue = Self { value in
+        return FlightsModel.mock
+    }
 }
