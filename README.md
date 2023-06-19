@@ -1,7 +1,7 @@
-# Your Flight
+# Your Trip
 ![logo-app](https://github.com/bryancaro/Your-Trip/assets/58017823/b1382100-b78d-4cdb-a401-32281551f19f)
 
-Welcome to Your Flight, a flight search application designed to make it easier for you to find flights to any destination worldwide. This app is part of a technical test for the Ryanair company.
+Welcome to Your Trip, a flight search application designed to make it easier for you to find flights to any destination worldwide. This app is part of a technical test for the Ryanair company.
 
 ![Swift](https://img.shields.io/badge/Swift-UI-blue.svg)
 
