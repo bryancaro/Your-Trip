@@ -13,7 +13,6 @@
 import SwiftUI
 
 struct FlightCard: View {
-    //  MARK: - Observed Object
     //  MARK: - Variables
     let flight: FlightModel
     //  MARK: - Principal View
@@ -50,25 +49,14 @@ struct FlightCard: View {
             .padding(.vertical, 4)
             .padding(.horizontal)
         }
-        .onAppear(perform: onAppear)
-        .onDisappear(perform: onDisappear)
     }
 }
 
-//  MARK: - Actions
-extension FlightCard {
-    private func onAppear() {}
-    
-    private func onDisappear() {}
-}
-
-//  MARK: - Local Components
-extension FlightCard {}
-
 //  MARK: - Preview
+#if DEBUG
 struct FlightCard_Previews: PreviewProvider {
     static var previews: some View {
         FlightCard(flight: .mock)
     }
 }
-
+#endif

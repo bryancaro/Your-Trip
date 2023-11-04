@@ -34,19 +34,11 @@ struct FlightResultsView: View {
                 }
             }
             .animation(.default, value: UUID())
-            .onAppear(perform: { onAppear(viewStore) })
-            .onDisappear(perform: onDisappear)
+            .onAppear(perform: {
+                viewStore.send(.fetchFlights)
+            })
         }
     }
-}
-
-//  MARK: - Actions
-extension FlightResultsView {
-    private func onAppear(_ viewStore: FlightResultsViewStore) {
-        viewStore.send(.fetchFlights)
-    }
-
-    private func onDisappear() {}
 }
 
 //  MARK: - Local Components
@@ -165,6 +157,7 @@ extension FlightResultsView {
 }
 
 //  MARK: - Preview
+#if DEBUG
 struct FlightResultsView_Previews: PreviewProvider {
     static let store = Store(
         initialState: FlightResultsDomain.State(searchFlight: SearchFlightModel(state: FlightSearchDomain.State())),
@@ -179,3 +172,4 @@ struct FlightResultsView_Previews: PreviewProvider {
         FlightResultsView(store: Self.store)
     }
 }
+#endif

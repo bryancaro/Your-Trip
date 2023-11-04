@@ -290,11 +290,13 @@ final class FlightSearchDomain_Test: XCTestCase {
                 toAirport: toAirport,
                 isRoundTrip: true,
                 departureDate: departureDate,
-                returnDate: returnDate)) {
-                    FlightSearchDomain()
-                } withDependencies: {
-                    $0.FlightSearchServerKey = .testValue
-                }
+                returnDate: returnDate
+            )
+        ) {
+            FlightSearchDomain()
+        } withDependencies: {
+            $0.FlightSearchServerKey = .testValue
+        }
 
         await store.send(.getSearchButtonStatus) {
             $0.isSearchButtonDisable = true
@@ -303,10 +305,11 @@ final class FlightSearchDomain_Test: XCTestCase {
 
     // Test case: Verify button visibility with valid conditions - should enable search button
     func test_verifyButtonVisibility_validConditions_shouldEnableSearchButton() async {
-        let fromAirport = StationModel.mock
+        let isRoundTrip = true
+        let fromAirport = StationModel(code: "MAD")
         let toAirport = StationModel(code: "COL")
-        let departureDate = convertStringToDate("2023-06-30")
-        let returnDate = convertStringToDate("2023-07-30")
+        let departureDate = convertStringToDate("2050-01-5")
+        let returnDate = convertStringToDate("2050-01-25")
 
         let store = TestStore(
             initialState: FlightSearchDomain.State(
@@ -314,13 +317,16 @@ final class FlightSearchDomain_Test: XCTestCase {
                 airports: [StationModel.mock],
                 fromAirport: fromAirport,
                 toAirport: toAirport,
-                isRoundTrip: true,
+                isRoundTrip: isRoundTrip,
                 departureDate: departureDate,
-                returnDate: returnDate)) {
-                    FlightSearchDomain()
-                } withDependencies: {
-                    $0.FlightSearchServerKey = .testValue
-                }
+                returnDate: returnDate,
+                adults: 1
+            )
+        ) {
+            FlightSearchDomain()
+        } withDependencies: {
+            $0.FlightSearchServerKey = .testValue
+        }
 
         await store.send(.getSearchButtonStatus) ///    No changes occurred, isSearchButtonDisable is enabled
     }

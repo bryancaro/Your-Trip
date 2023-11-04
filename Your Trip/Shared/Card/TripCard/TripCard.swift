@@ -13,7 +13,6 @@
 import SwiftUI
 
 struct TripCard: View {
-    //  MARK: - Observed Object
     //  MARK: - Variables
     let trip: TripModel
     //  MARK: - Principal View
@@ -27,16 +26,7 @@ struct TripCard: View {
                 Divider()
             }
         }
-        .onAppear(perform: onAppear)
-        .onDisappear(perform: onDisappear)
     }
-}
-
-//  MARK: - Actions
-extension TripCard {
-    private func onAppear() {}
-    
-    private func onDisappear() {}
 }
 
 //  MARK: - Local Components
@@ -138,9 +128,10 @@ extension TripCard {
 }
 
 //  MARK: - Preview
+#if DEBUG
 struct TripCard_Previews: PreviewProvider {
     static var previews: some View {
         TripCard(trip: .mock)
     }
 }
-
+#endif

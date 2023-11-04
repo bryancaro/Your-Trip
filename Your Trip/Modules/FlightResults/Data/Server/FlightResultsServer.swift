@@ -38,7 +38,11 @@ extension FlightResultsServer: DependencyKey {
 
         let params = data.generateParameters()
 
-        let response: FlightsResponse = try await NetworkController().request(.get, url: url, headers: headers, params: params, sendParamsInQuery: true)
+        let response: FlightsResponse =
+        try await NetworkController
+            ._printChanges()
+            .request(.get, url: url, headers: headers, params: params, bodyType: .inQuery)
+
         let model = FlightsModel(response)
         return model
     }

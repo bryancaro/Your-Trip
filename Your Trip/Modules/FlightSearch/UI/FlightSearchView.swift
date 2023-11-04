@@ -7,7 +7,7 @@
 //  Running on macOS 13.4
 //
 //  Created by Bryan Caro on 17/6/23.
-//  
+//
 //
 
 import SwiftUI
@@ -36,29 +36,28 @@ struct FlightSearchView: View {
             }
             .animation(.default, value: UUID())
             .sheet(
-                isPresented: viewStore.binding(get: \.showFlightResults, send: FlightSearchAction.showFlightResults),
-                onDismiss: {
-
-                },
+                isPresented: viewStore.binding(
+                    get: \.showFlightResults,
+                    send: FlightSearchAction.showFlightResults
+                ),
+                onDismiss: {},
                 content: {
                     IfLetStore(
-                        store.scope(state: \.flightResultsState, action: FlightSearchAction.flightResults)) { store in
-                            FlightResultsView(store: store)
-                        }
+                        store.scope(
+                            state: \.flightResultsState,
+                            action: FlightSearchAction.flightResults
+                        )
+                    ) { store in
+                        FlightResultsView(
+                            store: store
+                        )
+                    }
                 })
-            .onAppear(perform: { onAppear(viewStore) })
-            .onDisappear(perform: onDisappear)
+            .onAppear(perform: {
+                viewStore.send(.fetchStations)
+            })
         }
     }
-}
-
-//  MARK: - Actions
-extension FlightSearchView {
-    private func onAppear(_ viewStore: FlightSearchViewStore) {
-        viewStore.send(.fetchStations)
-    }
-
-    private func onDisappear() {}
 }
 
 //  MARK: - Local Components
@@ -116,14 +115,17 @@ extension FlightSearchView {
         Section(Self.TRIP_TYPE_TITLE) {
             Picker(selection: viewStore.binding(
                 get: \.isRoundTrip,
-                send:  FlightSearchAction.roundTrip), label: Text(Self.TRIP_TYPE_TITLE)) {
-                    Text(Self.ONE_WAY_TITLE)
-                        .tag(false)
+                send:  FlightSearchAction.roundTrip
+            ),
+                   label: Text(Self.TRIP_TYPE_TITLE)
+            ) {
+                Text(Self.ONE_WAY_TITLE)
+                    .tag(false)
 
-                    Text(Self.ROUND_WAY_TITLE)
-                        .tag(true)
-                }
-                .pickerStyle(SegmentedPickerStyle())
+                Text(Self.ROUND_WAY_TITLE)
+                    .tag(true)
+            }
+            .pickerStyle(SegmentedPickerStyle())
         }
     }
 
@@ -131,38 +133,51 @@ extension FlightSearchView {
         Section(Self.TRAVEL_SEARCH_TITLE) {
             Picker(selection: viewStore.binding(
                 get: \.fromAirport,
-                send:  FlightSearchAction.departAirport), label: Text(Self.FROM_AIR_TITLE)) {
-                    Text(Self.SELECT_LABEL).tag("")
-                    ForEach(viewStore.airports, id: \.self) { station in
-                        Text(station.name)
-                            .tag(station.code)
-                    }
+                send:  FlightSearchAction.departAirport
+            ),
+                   label: Text(Self.FROM_AIR_TITLE)
+            ) {
+                Text(Self.SELECT_LABEL).tag("")
+                ForEach(viewStore.airports, id: \.self) { station in
+                    Text(station.name)
+                        .tag(station.code)
                 }
+            }
 
             Picker(selection: viewStore.binding(
                 get: \.toAirport,
-                send:  FlightSearchAction.arriveAirport), label: Text(Self.TO_AIR_TITLE)) {
-                    Text(Self.SELECT_LABEL).tag("")
-                    ForEach(viewStore.airports, id: \.self) { station in
-                        Text(station.name)
-                            .tag(station.code)
-                    }
+                send:  FlightSearchAction.arriveAirport
+            ),
+                   label: Text(Self.TO_AIR_TITLE)
+            ) {
+                Text(Self.SELECT_LABEL).tag("")
+                ForEach(viewStore.airports, id: \.self) { station in
+                    Text(station.name)
+                        .tag(station.code)
                 }
+            }
         }
     }
 
     private func TravelDatesFormComponent(_ viewStore: FlightSearchViewStore) -> some View {
         Section(Self.TRAVEL_DATE_TITLE) {
-            DatePicker(Self.GOING_LABEL, selection: viewStore.binding(
-                get: \.departureDate,
-                send: FlightSearchAction.departureDate),
-                       displayedComponents: .date)
+            DatePicker(
+                Self.GOING_LABEL,
+                selection: viewStore.binding(
+                    get: \.departureDate,
+                    send: FlightSearchAction.departureDate
+                ),
+                displayedComponents: .date)
 
             if !viewStore.isReturnPickerDateDisable {
-                DatePicker(Self.RETURN_LABEL, selection: viewStore.binding(
-                    get: \.returnDate,
-                    send: FlightSearchAction.returnDate),
-                           displayedComponents: .date)
+                DatePicker(
+                    Self.RETURN_LABEL,
+                    selection: viewStore.binding(
+                        get: \.returnDate,
+                        send: FlightSearchAction.returnDate
+                    ),
+                    displayedComponents: .date
+                )
             }
         }
     }
@@ -192,8 +207,10 @@ extension FlightSearchView {
 }
 
 //  MARK: - Preview
+#if DEBUG
 struct FlightSearchView_Previews: PreviewProvider {
     static var previews: some View {
         FlightSearchView(store: FlightSearchView.store)
     }
 }
+#endif
